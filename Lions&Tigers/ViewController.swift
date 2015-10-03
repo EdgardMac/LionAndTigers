@@ -67,6 +67,9 @@ class ViewController: UIViewController {
         
         myTigers += [secondTiger, thirdTiger, fourthTiger]
         
+        myTiger.chuffANumberOfTimes(3)
+        secondTiger.chuffANumberOfTimes(2)
+        
         
     }
 

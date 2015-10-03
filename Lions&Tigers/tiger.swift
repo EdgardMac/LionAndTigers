@@ -21,5 +21,15 @@ struct Tiger {
     
     }
     
+    func chuffANumberOfTimes (numberOfTimes :Int){
+        
+        for var chuff = 0; chuff < numberOfTimes; ++chuff {
+        
+        self.chuff()
+            
+        }
+    
+    }
+    
 
 }
