@@ -33,8 +33,10 @@ class ViewController: UIViewController {
         myTiger.breed = "Bengal"
         myTiger.age = 3
         myTiger.image = UIImage( named: "BengalTiger.jpg")
+        myTiger.age = myTiger.ageInTigerYearsFromAge(myTiger.age)
         
         myTiger.chuff()
+        myTiger.chuffANumberOfTimes(3, isLoud: false)
         
         myTigers.append(myTiger)
         
@@ -51,6 +53,7 @@ class ViewController: UIViewController {
         secondTiger.breed = "Indochinese Tiger"
         secondTiger.image = UIImage(named:"IndochineseTiger.jpg")
         secondTiger.chuff()
+        secondTiger.age = secondTiger.ageInTigerYearsFromAge(secondTiger.age)
         
         var thirdTiger = Tiger ()
 
@@ -58,12 +61,14 @@ class ViewController: UIViewController {
         thirdTiger.age = 4
         thirdTiger.breed = "Malayan Tiger"
         thirdTiger.image = UIImage(named: "MalayanTiger.jpg")
+        thirdTiger.age = thirdTiger.ageInTigerYearsFromAge(thirdTiger.age)
         
         var fourthTiger = Tiger()
         fourthTiger.name = "Spar"
         fourthTiger.breed = "Siberian Tiger"
         fourthTiger.age = 5
         fourthTiger.image = UIImage(named: "SiberianTiger.jpg")
+        fourthTiger.age = fourthTiger.ageInTigerYearsFromAge(fourthTiger.age)
         
         myTigers += [secondTiger, thirdTiger, fourthTiger]
         

@@ -31,5 +31,28 @@ struct Tiger {
     
     }
     
+    func chuffANumberOfTimes (numberOfTimes :Int, isLoud :Bool){
+    
+        for var chuffTimes = 1; chuffTimes <= numberOfTimes; ++chuffTimes {
+        
+            if isLoud {
+                
+                chuff()
+            }else {
+                
+                print("Tiger: purr purr")
+            }
+        
+        }
+    
+    }
+    
+    func ageInTigerYearsFromAge (regularAge :Int) -> Int {
+    
+    let newage = regularAge*3
+        
+        return newage
+    
+    }
 
 }
