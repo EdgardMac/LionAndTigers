@@ -18,6 +18,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var breedLabel: UILabel!
     
+    @IBOutlet weak var randomFactLevel: UILabel!
+    
+    
     var myTigers:[Tiger] = []
     
     var currentIndex = 0
@@ -46,6 +49,7 @@ class ViewController: UIViewController {
         nameLabel.text=myTiger.name
         ageLabel.text="\(myTiger.age)"
         breedLabel.text=myTiger.breed
+        randomFactLevel.text=myTiger.randomFact()
         
         var secondTiger = Tiger()
         secondTiger.name = "Tigres"
@@ -107,6 +111,7 @@ class ViewController: UIViewController {
             self.nameLabel.text = tiger.name
             self.ageLabel.text = "\(tiger.age)"
             self.breedLabel.text = tiger.breed
+            self.randomFactLevel.text = tiger.randomFact()
             
             
             
