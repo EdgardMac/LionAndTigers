@@ -34,6 +34,8 @@ class ViewController: UIViewController {
         myTiger.age = 3
         myTiger.image = UIImage( named: "BengalTiger.jpg")
         
+        myTiger.chuff()
+        
         myTigers.append(myTiger)
         
         print("My tiger's name is: \(myTiger.name), it's age is: \(myTiger.age), it's breed is: \(myTiger.breed), and it's image is: \(myTiger.image)")
@@ -48,6 +50,7 @@ class ViewController: UIViewController {
         secondTiger.age = 2
         secondTiger.breed = "Indochinese Tiger"
         secondTiger.image = UIImage(named:"IndochineseTiger.jpg")
+        secondTiger.chuff()
         
         var thirdTiger = Tiger ()
 
