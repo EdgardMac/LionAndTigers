@@ -22,8 +22,11 @@ class ViewController: UIViewController {
     
     
     var myTigers:[Tiger] = []
+    var lions: [Lion] = []
     
     var currentIndex = 0
+    
+    var currentAnimal = ( species: "Tiger", index: 0)
     
     
     
@@ -79,6 +82,29 @@ class ViewController: UIViewController {
         myTiger.chuffANumberOfTimes(3)
         secondTiger.chuffANumberOfTimes(2)
         
+        var lion = Lion()
+        lion.age = 4
+        lion.isAlphaMale = false
+        lion.image = UIImage(named: "Lion.jpg")
+        lion.name  = "Mufasa"
+        lion.subspecies = "West African"
+        
+        var lioness = Lion()
+        lioness.age = 3
+        lioness.isAlphaMale = false
+        lioness.image = UIImage(named: "Lioness.jpeg")
+        lioness.name = "Sarabi"
+        lioness.subspecies = "Barbary"
+        
+        lion.roar()
+        lioness.roar()
+        lion.changeToAlphaMale()
+        print(lion.isAlphaMale)
+        
+        self.lions += [ lion, lioness]
+        
+        
+        
         
     }
 
@@ -89,35 +115,58 @@ class ViewController: UIViewController {
     
     @IBAction func nextBarButtonItemPressed(sender: UIBarButtonItem) {
         
-        var randomIndex:Int
+        updateAnimal()
+        updateView()
         
-        repeat{
+
         
-        randomIndex = Int(arc4random_uniform(UInt32(myTigers.count)))
-        }while currentIndex == randomIndex
+    }
+    
+    
+    func updateAnimal() {
         
-        currentIndex = randomIndex
+        switch currentAnimal {
+            
+        case ("Tiger", _) :
+            let randomIndex = Int(arc4random_uniform(UInt32(lions.count)))
+            currentAnimal = ("Lion", randomIndex)
+            
+        default :
+            let randomIndex = Int(arc4random_uniform(UInt32(myTigers.count)))
+            currentAnimal = ("Tiger", randomIndex)
+        }
+    }
+    
+    func updateView(){
         
-        let tiger = myTigers[randomIndex]
-        
-//        myImageView.image = tiger.image
-//        nameLabel.text = tiger.name
-//        ageLabel.text = "\(tiger.age)"
-//        breedLabel.text = tiger.breed
         
         UIView.transitionWithView(self.view, duration: 1, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
             
-            self.myImageView.image = tiger.image
-            self.nameLabel.text = tiger.name
-            self.ageLabel.text = "\(tiger.age)"
-            self.breedLabel.text = tiger.breed
-            self.randomFactLevel.text = tiger.randomFact()
+            if self.currentAnimal.species == "Tiger" {
+                let tiger = self.myTigers[self.currentAnimal.index]
+                self.myImageView.image = tiger.image
+                self.breedLabel.text = tiger.breed
+                self.ageLabel.text = "\(tiger.age)"
+                self.nameLabel.text = tiger.name
+                self.randomFactLevel.text = tiger.randomFact()
+            }
+            else if self.currentAnimal.species == "Lion" {
+                let lion = self.lions[self.currentAnimal.index]
+                self.myImageView.image = lion.image
+                self.breedLabel.text = lion.subspecies
+                self.ageLabel.text = "\(lion.age)"
+                self.nameLabel.text = lion.name
+                self.randomFactLevel.text = lion.randomFact()   
+            }
+            self.randomFactLevel.hidden = false
             
             
             
             }, completion: {
                 (finished:Bool) -> () in
         })
+        
+        
     }
     
 
